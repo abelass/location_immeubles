@@ -50,15 +50,27 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 	# );
 
 	include_spip('inc/config');
-	$config_prix_objets = lire_config('prix_objets', array());
-	$config_objets_infos_extras = lire_config('objets_infos_extras', array());
-	$config_objets_services_extras = lire_config('objets_services_extras', array());
-	
-	$config_prix_objets = push();
 
-	/*$maj['create'] = array(
-		array('ecrire_config', 'location_immeubles', array('exemple' => "Texte de l'exemple"))
-	);*/
+	// Lier l'immeuble aux plugins souhaités.
+	$config_prix_objets = lire_config('prix_objets/objets_prix', array());
+	$config_objets_infos_extras = lire_config('objets_infos_extras/objets', array());
+	$config_objets_services_extras = lire_config('objets_services_extras/objets', array());
+
+	$config_prix_objets = array_merge(
+			$config_prix_objets, array('objets_service', 'immeuble')
+		);
+	$config_objets_infos_extras = array_merge(
+			$config_objets_infos_extras, array('spip_immeubles')
+		);
+	$config_objets_services_extras = array_merge(
+			$config_objets_services_extras, array('spip_immeubles')
+		);
+
+	$maj['create'] = array(
+		array('ecrire_config', 'prix_objets', array('objets_prix' => $config_prix_objets)),
+		array('ecrire_config', 'objets_infos_extras', array('objets' => $config_objets_infos_extras)),
+		array('ecrire_config', 'objets_services_extras', array('objets' => $config_objets_services_extras))
+	);
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
