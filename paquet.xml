@@ -25,6 +25,7 @@
 	<necessite nom="objets_infos_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="objets_services_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="immeubles" compatibilite="[1.0.0;]" />
+	<necessite nom="espaces" compatibilite="[1.0.0;]" />
 
 	<!--
 		Exemple de commandes
