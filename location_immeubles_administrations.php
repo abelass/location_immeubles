@@ -50,26 +50,40 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 	# );
 
 	include_spip('inc/config');
+	spip_log($nom_meta_base_version, 'teste');
 
-	// Lier l'immeuble aux plugins souhaités.
-	$config_prix_objets = lire_config('prix_objets/objets_prix', array());
-	$config_objets_infos_extras = lire_config('objets_infos_extras/objets', array());
-	$config_objets_services_extras = lire_config('objets_services_extras/objets', array());
+	// Définir les liaisons souhaités
+	if ($nom_meta_base_version == 'location_immeubles_base_version') {
+		$config_prix_objets = lire_config('prix_objets/objets_prix', array());
+		$config_objets_espaces = lire_config('objets_espaces/objets', array());
+		$config_objets_infos_extras = lire_config('objets_infos_extras/objets', array());
+		$config_objets_services_extras = lire_config('objets_services_extras/objets', array());
+		$config_objets_disponibilites = lire_config('objets_disponibilites/objets', array());
 
-	$config_prix_objets = array_merge(
-			$config_prix_objets, array('objets_service', 'immeuble')
-		);
-	$config_objets_infos_extras = array_merge(
-			$config_objets_infos_extras, array('spip_immeubles')
-		);
-	$config_objets_services_extras = array_merge(
-			$config_objets_services_extras, array('spip_immeubles')
-		);
+		$config_prix_objets = array_merge(
+				$config_prix_objets, array('objets_service', 'espace')
+			);
+		$config_objets_espaces = array_merge(
+				$config_objets_services_extras, array('spip_immeubles')
+			);
+		$config_objets_infos_extras = array_merge(
+				$config_objets_infos_extras, array('spip_immeubles', 'spip_espaces')
+			);
+		$config_objets_services_extras = array_merge(
+				$config_objets_services_extras, array('spip_immeubles', 'spip_espaces')
+			);
+		$config_objets_disponibilites = array_merge(
+				$config_objets_disponibilites, array('spip_espaces')
+			);
+	}
+
 
 	$maj['create'] = array(
 		array('ecrire_config', 'prix_objets', array('objets_prix' => $config_prix_objets)),
+		array('ecrire_config', 'objets_espaces', array('objets' => $config_objets_espaces)),
 		array('ecrire_config', 'objets_infos_extras', array('objets' => $config_objets_infos_extras)),
-		array('ecrire_config', 'objets_services_extras', array('objets' => $config_objets_services_extras))
+		array('ecrire_config', 'objets_services_extras', array('objets' => $config_objets_services_extras)),
+		array('ecrire_config', 'objets_disponibilites', array('objets' => $config_objets_disponibilites)),
 	);
 
 	include_spip('base/upgrade');
