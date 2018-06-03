@@ -22,3 +22,6 @@ Gérer les lits via infos extras, smnt Infos de base dans immeubles
 
 ## to do
 Ajouter catégorie mot Clé à infos extras pour distinguer les lits (peut être mieux dans le plug immeubles
+ajouter config
+	- inscriptio visiteur
+	- objets_location
