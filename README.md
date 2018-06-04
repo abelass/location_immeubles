@@ -1,27 +1,31 @@
-# location_immeubles
+# Location d'immeubles
 Location d'immeubles
 
 Plugins qui assembles divers plugins tiers et propose de squelettes pour permettre de gérer la location d'immeubles
 
-## Objets liés
+## Introduction
+Se plugin propose une solution de location d'espaces habitables. Il se base sur l'hypothèse
+qu'un [immeuble](https://github.com/abelass/immeubles) dispose de plusieurs [espaces](https://github.com/abelass/espaces) à louer.
 
-### Espaces
-via plugin espaces: gère les chambres appartement, ... attaché à un immeuble
+Donc on a l'immeuble qui contient les informations générales, puis les différents espaces
+avec leur propre charactéristique ainsi que le [prix de vente](https://github.com/abelass/prix_objets_periodes) et les
+[dates disponibles](https://github.com/abelass/objets_disponibilites) de l'espace.
 
-###les infos extras (wifi, lave vaiselle, lits ...)
-objets_infos_extras champs : titre, statut, descriptif table liés avec quantités
+Si cela est trop complexe, on peut s'en passer des espaces et uniquement utiliser
+les immeubles.
 
-###Service extras:
-objets_services_extras
-objets prix pour leur donner un prix
-
+Les deux plugin espaces et immeubles contiennent volontairement peu de champs.
+Afin d'ajouter des infos additionels le plugin prévoit utiliser [Infos extras pour objets](https://github.com/abelass/objets_infos_extras)
 
 
-## to do
-Gérer les lits via infos extras, smnt Infos de base dans immeubles
+## Nécessaires
+- [location_objets](https://github.com/abelass/location_objets)
+- [objets_infos_extras](https://github.com/abelass/objets_infos_extras)
+- [objets_services_extras](https://github.com/abelass/objets_services_extras)
+- [immeubles](https://github.com/abelass/immeubles)
+- [espaces](https://github.com/abelass/espaces)
 
-## to do
-Ajouter catégorie mot Clé à infos extras pour distinguer les lits (peut être mieux dans le plug immeubles
-ajouter config
-	- inscriptio visiteur
-	- objets_location
+### Location
+Les squelettes de base des objets immeubles et espaces contiennent un lien vers la
+page de location respective
+
