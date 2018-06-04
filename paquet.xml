@@ -1,17 +1,13 @@
 <paquet
 	prefix="location_immeubles"
 	categorie="divers"
-	version="1.0.1"
-	etat="dev"
+	version="1.0.2"
+	etat="test"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/location_immeubles-64.png"
 	documentation="https://github.com/abelass/location_immeubles"
-	schema="1.0.0"
+	schema="1.0.3"
 >
-	<!--
-		Paquet généré le 2018-05-10 17:04:38
-		(Vous pouvez bien entendu supprimer ces commentaires)
-	-->
 
 	<nom>Location d&#039;immeubles</nom>
 	<!-- Louez vos immeubles -->
@@ -26,27 +22,5 @@
 	<necessite nom="objets_services_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="immeubles" compatibilite="[1.0.0;]" />
 	<necessite nom="espaces" compatibilite="[1.0.0;]" />
-
-	<!--
-		Exemple de commandes
-		* dependances
-		<necessite nom="saisies" compatibilite="[2.4.0;]" />
-		<utilise nom="saisies" compatibilite="[2.4.0;]" />
-		<lib nom="simplehtmldom" lien="http://chemin_vers_archive.zip" />
-		* pipelines
-		<pipeline nom="autoriser" inclure="location_immeubles_autorisations.php" />
-		<pipeline nom="insert_head" inclure="location_immeubles_pipelines.php" />
-		* declarer un pipeline
-		<pipeline nom="mon_pipeline" action="" />
-		* parents de menus de SPIP :
-				menu_accueil (à éviter), menu_edition, menu_publication,
-				menu_activite, menu_squelette, menu_administration, menu_configuration
-		<menu nom="location_immeubles" titre="location_immeubles:location_immeubles_titre" parent="menu_edition"  icone="images/location_immeubles-16.png" />
-		* parents d'onglets... configuration, plugins, statistiques, ...
-		<onglet nom="location_immeubles" titre="location_immeubles:location_immeubles_titre" parent="configuration" icone="images/location_immeubles-24.png" />
-	-->
-
-
-
 
 </paquet>
