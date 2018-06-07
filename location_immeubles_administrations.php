@@ -50,10 +50,11 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 	# );
 
 	include_spip('inc/config');
-	spip_log($nom_meta_base_version, 'teste');
+
+	$version_actuelle = lire_config($nom_meta_base_version, 0);
 
 	// Définir les liaisons souhaités
-	if ($nom_meta_base_version == 'location_immeubles_base_version') {
+	if (spip_version_compare($version_actuelle,'1.0.3', '<=')) {
 		$config_prix_objets = lire_config('prix_objets/objets_prix', array());
 		$config_objets_espaces = lire_config('objets_espaces/objets', array());
 		$config_objets_infos_extras = lire_config('objets_infos_extras/objets', array());
@@ -75,8 +76,6 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 		$config_objets_disponibilites = array_merge(
 				$config_objets_disponibilites, array('spip_espaces')
 			);
-	}
-	if ($nom_meta_base_version == '1.0.3') {
 		$config_location_objets = lire_config('config_location_objets', array());
 		$config_location_objets = array_merge(
 			$config_location_objets, array(
@@ -93,13 +92,18 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 	}
 
 
+
 	$maj['create'] = array(
 		array('ecrire_config', 'prix_objets', array('objets_prix' => $config_prix_objets)),
 		array('ecrire_config', 'objets_espaces', array('objets' => $config_objets_espaces)),
 		array('ecrire_config', 'objets_infos_extras', array('objets' => $config_objets_infos_extras)),
 		array('ecrire_config', 'objets_services_extras', array('objets' => $config_objets_services_extras)),
 		array('ecrire_config', 'objets_disponibilites', array('objets' => $config_objets_disponibilites)),
+		array('ecrire_config', 'location_objets', $config_location_objets),
+		array('ecrire_config', 'accepter_inscriptions', 'oui'),
+		array('ecrire_config', 'accepter_visiteurs', 'oui'),
 	);
+
 	$maj['1.0.3'] = array(
 		array('ecrire_config', 'location_objets', $config_location_objets),
 		array('ecrire_config', 'accepter_inscriptions', 'oui'),
