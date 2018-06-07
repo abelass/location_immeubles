@@ -76,7 +76,7 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 				$config_objets_disponibilites, array('spip_espaces')
 			);
 	}
-	if ($nom_meta_base_version == '1.0.0') {
+	if ($nom_meta_base_version == '1.0.3') {
 		$config_location_objets = lire_config('config_location_objets', array());
 		$config_location_objets = array_merge(
 			$config_location_objets, array(
@@ -101,7 +101,7 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 		array('ecrire_config', 'objets_disponibilites', array('objets' => $config_objets_disponibilites)),
 	);
 	$maj['1.0.3'] = array(
-		array('ecrire_config', 'prix_objets', array('location_objets' => $config_location_objets)),
+		array('ecrire_config', 'location_objets', $config_location_objets),
 		array('ecrire_config', 'accepter_inscriptions', 'oui'),
 		array('ecrire_config', 'accepter_visiteurs', 'oui'),
 	);
