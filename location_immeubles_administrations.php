@@ -31,12 +31,11 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * @return void
 **/
 function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
-	$maj = array();
-
 	include_spip('base/location_immeubles');
 	include_spip('inc/cextras');
 	include_spip('inc/config');
 
+	$maj = array();
 	$version_actuelle = lire_config($nom_meta_base_version, 0);
 
 	// Définir les liaisons souhaités
@@ -77,8 +76,6 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 			);
 	}
 
-
-
 	$maj['create'] = array(
 		array('ecrire_config', 'prix_objets', array('objets_prix' => $config_prix_objets)),
 		array('ecrire_config', 'objets_espaces', array('objets' => $config_objets_espaces)),
@@ -95,6 +92,7 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 		array('ecrire_config', 'accepter_inscriptions', 'oui'),
 		array('ecrire_config', 'accepter_visiteurs', 'oui'),
 	);
+
 	cextras_api_upgrade(location_immeubles_declarer_champs_extras(), $maj['1.0.4']);
 
 	include_spip('base/upgrade');
