@@ -32,23 +32,9 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 **/
 function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 	$maj = array();
-	# quelques exemples
-	# (que vous pouvez supprimer !)
-	#
-	# $maj['create'] = array(array('creer_base'));
-	#
-	# include_spip('inc/config')
-	# $maj['create'] = array(
-	#	array('maj_tables', array('spip_xx', 'spip_xx_liens')),
-	#	array('ecrire_config', 'location_immeubles', array('exemple' => "Texte de l'exemple"))
-	#
-	# $maj['1.1.0']  = array(array('sql_alter','TABLE spip_xx RENAME TO spip_yy'));
-	# $maj['1.2.0']  = array(array('sql_alter','TABLE spip_xx DROP COLUMN id_auteur'));
-	# $maj['1.3.0']  = array(
-	#	array('sql_alter','TABLE spip_xx CHANGE numero numero int(11) default 0 NOT NULL'),
-	#	array('sql_alter','TABLE spip_xx CHANGE texte petit_texte mediumtext NOT NULL default \'\''),
-	# );
 
+	include_spip('base/location_immeubles');
+	include_spip('inc/cextras');
 	include_spip('inc/config');
 
 	$version_actuelle = lire_config($nom_meta_base_version, 0);
@@ -109,6 +95,7 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
 		array('ecrire_config', 'accepter_inscriptions', 'oui'),
 		array('ecrire_config', 'accepter_visiteurs', 'oui'),
 	);
+	cextras_api_upgrade(location_immeubles_declarer_champs_extras(), $maj['1.0.4']);
 
 	include_spip('base/upgrade');
 	maj_plugin($nom_meta_base_version, $version_cible, $maj);
@@ -128,11 +115,6 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
  * @return void
 **/
 function location_immeubles_vider_tables($nom_meta_base_version) {
-	# quelques exemples
-	# (que vous pouvez supprimer !)
-	# sql_drop_table('spip_xx');
-	# sql_drop_table('spip_xx_liens');
-
-
+	cextras_api_vider_tables(location_immeubles_declarer_champs_extras());
 	effacer_meta($nom_meta_base_version);
 }

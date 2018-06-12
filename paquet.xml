@@ -1,12 +1,12 @@
 <paquet
 	prefix="location_immeubles"
 	categorie="divers"
-	version="1.0.3"
+	version="1.0.4"
 	etat="test"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/location_immeubles-64.png"
 	documentation="https://github.com/abelass/location_immeubles"
-	schema="1.0.3"
+	schema="1.0.4"
 >
 
 	<nom>Location d&#039;immeubles</nom>
@@ -17,12 +17,15 @@
 
 	<licence>GNU/GPL v3</licence>
 
-	<necessite nom="location_objets" compatibilite="[1.0.8;]" />
+	<necessite nom="location_objets" compatibilite="[1.0.13;]" />
 	<necessite nom="objets_infos_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="objets_services_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="immeubles" compatibilite="[1.0.0;]" />
 	<necessite nom="espaces" compatibilite="[1.0.0;]" />
 	<necessite nom="prix_objets_periodes" compatibilite="[1.0.2;]" />
+	<necessite nom="cextras" compatibilite="[3.11.5;[" />
+
+	<pipeline nom="declarer_champs_extras" inclure="base/location_immeubles.php" />
 
 	<chemin path="squelettes" />
 	<chemin path="" />
