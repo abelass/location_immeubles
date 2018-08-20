@@ -14,9 +14,13 @@ avec leur propre charactéristique comme le [prix de vente](https://github.com/a
 Si cela est trop complexe, on peut s'en passer des espaces et uniquement utiliser
 les immeubles.
 
-Les deux plugins espaces et immeubles contiennent volontairement peu de champs.
-Afin d'ajouter des infos additionels utilisez le plugin [Infos extras pour objets](https://github.com/abelass/objets_infos_extras)
+## Champs
 
+Les deux plugins espaces et immeubles contiennent volontairement peu de champs.
+Afin d'ajouter des infos additionels utilisez le plugin [Infos extras pour objets](https://github.com/abelass/objets_infos_extras).
+
+## Services extras
+Si voulez ajouter des services extras à louer, faites le via le plugin [objets_services_extras](https://github.com/abelass/objets_services_extras).
 
 ## Nécessaires
 - [location_objets](https://github.com/abelass/location_objets)
