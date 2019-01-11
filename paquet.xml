@@ -26,6 +26,7 @@
 	<necessite nom="cextras" compatibilite="[3.11.5;[" />
 
 	<pipeline nom="declarer_champs_extras" inclure="base/location_immeubles.php" />
+	<pipeline nom="affiche_milieu" inclure="location_immeubles_pipelines.php" />
 
 	<chemin path="squelettes" />
 	<chemin path="" />
