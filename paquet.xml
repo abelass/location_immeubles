@@ -1,7 +1,7 @@
 <paquet
 	prefix="location_immeubles"
 	categorie="divers"
-	version="1.0.5"
+	version="1.0.6"
 	etat="test"
 	compatibilite="[3.0.0;3.2.*]"
 	logo="prive/themes/spip/images/location_immeubles-64.png"
@@ -21,7 +21,6 @@
 	<necessite nom="objets_infos_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="objets_services_extras" compatibilite="[1.0.0;]" />
 	<necessite nom="immeubles" compatibilite="[1.0.0;]" />
-	<necessite nom="espaces" compatibilite="[1.0.0;]" />
 	<necessite nom="prix_objets_periodes" compatibilite="[1.0.2;]" />
 	<necessite nom="cextras" compatibilite="[3.11.5;[" />
 
