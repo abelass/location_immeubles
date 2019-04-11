@@ -113,6 +113,7 @@ function location_immeubles_upgrade($nom_meta_base_version, $version_cible) {
  * @return void
 **/
 function location_immeubles_vider_tables($nom_meta_base_version) {
+	include_spip('inc/cextras');
 	cextras_api_vider_tables(location_immeubles_declarer_champs_extras());
 	effacer_meta($nom_meta_base_version);
 }
